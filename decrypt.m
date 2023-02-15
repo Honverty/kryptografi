@@ -9,7 +9,7 @@ function [result] = decrypt(key, string)
     newKey = mod(inv(key), length(letters)+1);
     for i=1:height:length(numbers)
         newValue = mod(newKey*numbers(i:i+height-1)',length(letters)+1);
-        result(i:i+height-1) = toStr(round(newValue));
+        result(i:i+height-1) = toStr(newValue);
     end
     result = join(result,"");
 end

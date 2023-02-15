@@ -1,5 +1,5 @@
 clear all
-key = [1 2; 3 0];
+key = [1 2; 2 3];
 temp = "Hello";
 msg=encrypt(key, temp);
 disp(msg)

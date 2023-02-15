@@ -7,9 +7,11 @@ function [result] = encrypt(key, string)
     end
     
     numbers = toInt(string);
-    
+
     if mod(length(numbers), height) ~= 0
-        %Fyll ut med nollor så modulo blir noll
+        for i=1:mod(length(numbers),height)
+            numbers(end+1) = 0;
+        end
     end
 
     result = strings(1,length(numbers));
