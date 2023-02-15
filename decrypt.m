@@ -6,10 +6,10 @@ function [result] = decrypt(key, string)
     end
     numbers = toInt(string);
     result = strings(1,length(numbers));
-    newKey = mod(inv(key), length(letters)+1);
+    newKey = mod(inv(key), length(letters));
     for i=1:height:length(numbers)
-        newValue = mod(newKey*numbers(i:i+height-1)',length(letters)+1);
-        result(i:i+height-1) = toStr(newValue);
+        newValue = mod(newKey*numbers(i:i+height-1)',length(letters));
+        result(i:i+height-1) = toStr(round(newValue));
     end
     result = join(result,"");
 end

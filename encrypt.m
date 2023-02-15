@@ -17,7 +17,7 @@ function [result] = encrypt(key, string)
     result = strings(1,length(numbers));
     
     for i=1:height:length(numbers)
-        newValue = mod(key*numbers(i:i+height-1)',length(letters)+1);
+        newValue = mod(key*numbers(i:i+height-1)',length(letters));
         result(i:i+height-1) = toStr(newValue);
     end
     

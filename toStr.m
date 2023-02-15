@@ -3,6 +3,8 @@ function [result] = toStr(numbers)
     association = dictionary(0:length(letters)-1,letters);
     result = strings(size(numbers));
     for i=1:length(numbers)
-        result(i) = association(mod(numbers(i),length(letters)+1));
+%         disp(result)
+%         disp(mod(numbers(i),length(letters)))
+        result(i) = association(mod(numbers(i),length(letters)));
     end
 end
