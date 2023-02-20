@@ -1,13 +1,13 @@
-function [result] = toInt(string)
+function [result] = toInt(str)
     load letters letters
     association = dictionary(letters,0:length(letters)-1);
-    if ~isstring(string)
-    letterList = split(string,"");
-    else 
-    letterList = string;
-    end
+
+    % Found no good way if detecting if a string array was split or not
+    str = join(str,"");
+    letterList = split(str, "");
+
     letterList(1) = [];
-    letterList(end) = [];
+    letterList(length(letterList)) = [];
     result = zeros(1,length(letterList));
     for i=1:length(letterList)
         result(i) = association(upper(letterList(i)));

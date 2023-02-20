@@ -1,4 +1,4 @@
-function [result] = encrypt(key, string)
+function [result] = encrypt(key, str)
     load letters letters
     [height,width] = size(key);
     
@@ -6,7 +6,7 @@ function [result] = encrypt(key, string)
         error("Key not square. It is " + height + "x" + width)
     end
     
-    numbers = toInt(string);
+    numbers = toInt(str);
 
     if mod(length(numbers), height) ~= 0
         for i=1:mod(length(numbers),height)
