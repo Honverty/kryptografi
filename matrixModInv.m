@@ -1,8 +1,8 @@
 %Inverterar 2x2-matriser med modulo letters-längd
 
-function [result] = matrixModInv(matrix)
+function [result] = matrixModInv(key)
     load letters letters
     modValue = length(letters);
-    [~, D] = gcd(det(matrix), modValue);
-    result = mod(D*[matrix(2, 2), -matrix(1, 2); -matrix(2, 1), matrix(1, 1)], modValue);
+    [~, D] = gcd(det(key), modValue);
+    result = mod(D*[key(2, 2), -key(1, 2); -key(2, 1), key(1, 1)], modValue);
 end

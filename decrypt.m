@@ -6,9 +6,13 @@ function [result] = decrypt(key, str)
     end
     numbers = toInt(str);
     result = strings(1,length(numbers));
-    newKey = mod(inv(key), length(letters));
+    newKey = key;
     for i=1:height:length(numbers)
         newValue = mod(newKey*numbers(i:i+height-1)',length(letters));
+<<<<<<< Updated upstream
+=======
+        result(i:i+height-1) = toStr(newValue);
+>>>>>>> Stashed changes
         if mod(newValue,1) ~= 0 % If the new values are not whole
             error("Unexpected values: " + string(newValue(1)) + " and " + string(newValue(2)))
         end
