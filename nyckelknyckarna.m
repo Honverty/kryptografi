@@ -1,4 +1,5 @@
 function [key] = nyckelknyckarna(cryptText,knownText,startPos,knownLength)
+load letters letters
 cryptText = upper(cryptText);
 knownText = upper(knownText);
 cryptText = split(cryptText,"");
@@ -15,14 +16,14 @@ pcText = toInt(pcText);
 pkText = toInt(pkText);
 
 % My (Andreas) own method, which gives a partially correct answer
-% C = [pcText(1) pcText(3); pcText(2) pcText(4)];
-% K = [pkText(1) pkText(3); pkText(2) pkText(4)];
-% 
-% key = (C*inv(K));
+%C = [pcText(1) pcText(2); pcText(3) pcText(4)];
+%K = [pkText(1) pkText(2); pkText(3) pkText(4)];
+ 
+%key = mod(matrixModInv(C)*K, 31);
 
 % This is the method said to work, but is currently giving incorrect keys
-% C = [pcText(1:2);pcText(3:4)];
-% K = [pkText(1:2);pkText(3:4)];
-% 
-% key = (C\K)';
+C = [pcText(1:2);pcText(3:4)];
+K = [pkText(1:2);pkText(3:4)];
+
+key = mod(round(matrixModInv(C)*K), length(letters))';
 end
