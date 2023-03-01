@@ -5,14 +5,10 @@ function [result] = encrypt(key, str)
     if height~=width
         error("Key not square. It is " + height + "x" + width)
     end
-    
-    numbers = toInt(str);
 
-    if mod(length(numbers), height) ~= 0
-        for i=1:mod(length(numbers),height)
-            numbers(end+1) = 0;
-        end
-    end
+    num = toInt(str);
+    numbers = zeros(1, length(num) + mod(length(num), height));
+    numbers(1:length(num)) = num;
 
     result = strings(1,length(numbers));
     
